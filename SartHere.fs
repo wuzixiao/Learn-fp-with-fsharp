@@ -15,12 +15,12 @@ type ReadingFunctions() =
     // NB: you do not need the return keyword. see the example above
     // return x with 1 added to it, as you would in statndard maths. 
     member this.AddOne (x:int): int = 
-        RemoveAndComplete("AddOne")
+        x + 1
 
     // Types and parenthes are options
     // For the tests to compile and pass, this should take in an int, and return and int
     member this.SubtractOne x = 
-        RemoveAndComplete("SubtractOne")
+        x - 1
 
 
 // Static class 
@@ -30,7 +30,7 @@ module Functions =
     // the identity function simply returns the input, unchanged
     // complete the following, by returning the input
     let inline identity x = 
-        RemoveAndComplete("identity")
+        x
 
     // Values can be named with let as well
     let x: bool = true
@@ -43,13 +43,12 @@ module Functions =
 
     // Complete the following
     let addTwo x = 
-        RemoveAndComplete("addTwo")
+        x + 2
 
     // Complete the following using the id function
     // Implement the identity function using the id function created above
     let doubleIdentity x = 
-        id (RemoveAndComplete("doubleIdentity"))
-
+        id id x
 
 module PureFunctions = 
     open System
@@ -66,7 +65,7 @@ module PureFunctions =
     // Complete the following
     // you can use Math.Pow or infix **
     let raiseToThePower (x:float) y = 
-        RemoveAndComplete("add") y
+        Math.Pow(x, y)
 
 
     let foo () = 
@@ -75,7 +74,7 @@ module PureFunctions =
     // Complete the following
     // is the funciton abve named `foo` a pure function? 
     let isFooAPureFunction (): bool = 
-        RemoveAndComplete("isFooAPureFunction")
+        false
 
         
 module HigherOrderFunctions = 
@@ -97,7 +96,7 @@ module HigherOrderFunctions =
     // Complete the following 
     // the function should return 100
     let addOneHundred () =     
-        f id (RemoveAndComplete("addOneHundred"))
+        f id 100
 
     // functions do not always need a name. 
     // They are called annoymous functions or a lamda 
@@ -110,8 +109,7 @@ module HigherOrderFunctions =
 
     // Complete the following 
     let addTwenty x = 
-        f (RemoveAndComplete("addTwenty")) x
-
+        f (fun x -> x + 20) x
 
 module ParitalApplication = 
 
